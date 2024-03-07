@@ -9,7 +9,7 @@ public class GameStateController : MonoBehaviour
         //Generates the start screen
         ViewStartScreen();
     }
-
+    
     public void ViewStartScreen()
     {
         //Generates Start Screen
@@ -38,11 +38,21 @@ public class GameStateController : MonoBehaviour
     public void EndGame()
     {
         //Resets the game back to StartGame
+        AssignMedal();
         ViewStartScreen();
     }
 
     public void CloseScreen()
     {
         //Closes overlay screens and returns to previous screen
+    }
+
+    public void AssignMedal()
+    {
+        //Assigns a medal to the game over screen
+        //10 - Bronze
+        //20 - Silver
+        //30 - Gold
+        //40 - Plat
     }
 }
