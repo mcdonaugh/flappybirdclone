@@ -3,56 +3,31 @@ using UnityEngine;
 
 public class GameStateController : MonoBehaviour
 {
+    [SerializeField] private Transform _startGameView;
+    [SerializeField] private Transform _gameView;
+    [SerializeField] private Transform _endGameView;
+    [SerializeField] private Transform _playerView;
 
-    public void Start ()
+    private void Awake()
     {
-        //Generates the start screen
-        ViewStartScreen();
-    }
-    
-    public void ViewStartScreen()
-    {
-        //Generates Start Screen
-        Debug.Log($"This");
-    }
-    public void ViewScoreScreen()
-    {
-        //Opens Score Screen
-        Debug.Log($"You are viewing the score");
-
-        // If Close Button is pressed, return to previous screen
-        CloseScreen();
-    }
-    
-    public void StartGame()
-    {
-        //Whene Start Is Pressed, Start Game
-        Debug.Log($"The Game Has Started!");
+        _startGameView.gameObject.SetActive(true);
+        _gameView.gameObject.SetActive(false);
+        _endGameView.gameObject.SetActive(false);
+        _playerView.gameObject.SetActive(false);
     }
 
-    public void ViewGameOverScreen()
+    public void OpenGameView()
     {
-        //if button is pressed, can 
+        _startGameView.gameObject.SetActive(false);
+        _gameView.gameObject.SetActive(true);
+        _endGameView.gameObject.SetActive(false);
+        _playerView.gameObject.SetActive(true);
     }
 
-    public void EndGame()
+    public void OpenEndGameView()
     {
-        //Resets the game back to StartGame
-        AssignMedal();
-        ViewStartScreen();
-    }
-
-    public void CloseScreen()
-    {
-        //Closes overlay screens and returns to previous screen
-    }
-
-    public void AssignMedal()
-    {
-        //Assigns a medal to the game over screen
-        //10 - Bronze
-        //20 - Silver
-        //30 - Gold
-        //40 - Plat
+            _startGameView.gameObject.SetActive(false);
+            _gameView.gameObject.SetActive(false);
+            _endGameView.gameObject.SetActive(true);
     }
 }
