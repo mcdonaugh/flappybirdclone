@@ -12,12 +12,15 @@ public class GameStateController : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private SpawnController _spawnController;
     [SerializeField] private TMP_Text _playerScoreText;
+    [SerializeField] private TMP_Text _playerEndText;
+    [SerializeField] private TMP_Text _playerBestText;
     [SerializeField] private Transform _playerMedals;
     
-    public int _playerScore = 0;
+    public int _playerScore;
 
     private void Awake()
     {
+        _playerScore = 0;
         _startGameView.gameObject.SetActive(true);
         _gameView.gameObject.SetActive(false);
         _endGameView.gameObject.SetActive(false);
@@ -48,6 +51,8 @@ public class GameStateController : MonoBehaviour
     public void SetScore(int score)
     {
         _playerScoreText.text = $"{score}";
+        _playerEndText.text = $"{score}";
+        _playerBestText.text = $"{score}";
     }
 
     public void PauseGame()
@@ -74,6 +79,7 @@ public class GameStateController : MonoBehaviour
         _playerController.RestartPosition();
         _playerController.DisableGravity();
         AssignMedal();
+        
     }
 
     public void RestartGame()
@@ -87,7 +93,7 @@ public class GameStateController : MonoBehaviour
         SetScore(0);
     }
 
-    public void AssignMedal()
+    private void AssignMedal()
     {
         if (_playerScore >= 10)
         {
@@ -109,4 +115,5 @@ public class GameStateController : MonoBehaviour
             _playerMedals.GetChild(3).gameObject.SetActive(true);
         }
     }
+
 }
