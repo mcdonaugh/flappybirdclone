@@ -6,7 +6,7 @@ public class PipeGroupController : MonoBehaviour
     [SerializeField] private float _pipeDestroyTime;
     
     private void OnEnable()
-    {
+    {   
         Destroy(gameObject, _pipeDestroyTime);
     }
 

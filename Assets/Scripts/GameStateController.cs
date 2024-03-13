@@ -88,6 +88,7 @@ public class GameStateController : MonoBehaviour
 
     public void RestartGame()
     {
+        _spawnController.DestroyRemainingPipes();
         _startGameView.gameObject.SetActive(true);
         _gameView.gameObject.SetActive(false);
         _endGameView.gameObject.SetActive(false);
