@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject _playerView;
     [SerializeField] private SpawnController _spawnController;
-    [SerializeField] private float _jumpForce = 10;
+    [SerializeField] private float _jumpForce = 1.5f;
     public bool IsSessionStarted = false;
     private Rigidbody2D _rigidbody;
 
@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
             {
                 _spawnController.EnableSpawn();
             }
-            _rigidbody.AddForce(new Vector2(0,_jumpForce), ForceMode2D.Impulse);
+            
+            _rigidbody.velocity = Vector2.up * _jumpForce;
             EnableGravity();
             IsSessionStarted = true;
         }
