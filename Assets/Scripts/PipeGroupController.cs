@@ -6,11 +6,6 @@ public class PipeGroupController : MonoBehaviour
     private void Update()
     {
         transform.position -= new Vector3 (_pipeGroupSpeed, 0, 0) * Time.deltaTime;
-       
-        if (transform.position.x == -2)
-        {
-            Destroy(gameObject);
-        }
     }
 
 }

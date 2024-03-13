@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 6038854359611932662}
   m_Layer: 0
   m_Name: ScoreTrigger
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 836311155556631811}
   m_Layer: 0
   m_Name: PipeGroup
-  m_TagString: Untagged
+  m_TagString: PipeGroup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

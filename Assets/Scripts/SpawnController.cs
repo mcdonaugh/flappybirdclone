@@ -1,4 +1,5 @@
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnController : MonoBehaviour
@@ -24,6 +25,7 @@ public class SpawnController : MonoBehaviour
     public void DisableSpawn()
     {
         CancelInvoke();
+
     }
 
     private void SpawnPipeGroup()
@@ -31,4 +33,8 @@ public class SpawnController : MonoBehaviour
         Instantiate(_pipeGroup, new Vector3 (_pipeGroupXPosition, _pipeGroupYPosition, 0), Quaternion.identity);
     }
 
+    public void DestroyPipeGroup()
+    {
+        
+    }
 }
