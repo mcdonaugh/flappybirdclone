@@ -1,6 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameStateController : MonoBehaviour
 {
@@ -14,7 +14,11 @@ public class GameStateController : MonoBehaviour
     [SerializeField] private TMP_Text _playerScoreText;
     [SerializeField] private TMP_Text _playerEndText;
     [SerializeField] private TMP_Text _playerBestText;
-    [SerializeField] private Transform _playerMedals;
+    [SerializeField] private Image _medalContainerImage;
+    [SerializeField] private Sprite _bronzeMedalSprite;
+    [SerializeField] private Sprite _silverMedalSprite;
+    [SerializeField] private Sprite _goldMedalSprite;
+    [SerializeField] private Sprite _platinumMedalSprite;
     
     public int _playerScore;
 
@@ -26,10 +30,6 @@ public class GameStateController : MonoBehaviour
         _endGameView.gameObject.SetActive(false);
         _playerView.gameObject.SetActive(false);
         _pauseGameView.gameObject.SetActive(false);
-        _playerMedals.GetChild(0).gameObject.SetActive(false);
-        _playerMedals.GetChild(1).gameObject.SetActive(false);
-        _playerMedals.GetChild(2).gameObject.SetActive(false);
-        _playerMedals.GetChild(3).gameObject.SetActive(false);
     }
 
      private void Update()
@@ -90,6 +90,7 @@ public class GameStateController : MonoBehaviour
         _pauseGameView.gameObject.SetActive(false);
         _playerView.gameObject.SetActive(false);
         _playerController.RestartPosition();
+        _medalContainerImage.gameObject.SetActive(false);
         SetScore(0);
     }
 
@@ -97,22 +98,20 @@ public class GameStateController : MonoBehaviour
     {
         if (_playerScore >= 10)
         {
-            _playerMedals.GetChild(0).gameObject.SetActive(true);
+            _medalContainerImage.gameObject.SetActive(true);
+            _medalContainerImage.sprite = _bronzeMedalSprite;
         }
         if (_playerScore >= 20)
         {
-            _playerMedals.GetChild(0).gameObject.SetActive(false);
-            _playerMedals.GetChild(1).gameObject.SetActive(true);
+            _medalContainerImage.sprite = _silverMedalSprite;
         }
         if (_playerScore >= 30)
         {
-            _playerMedals.GetChild(1).gameObject.SetActive(false);
-            _playerMedals.GetChild(2).gameObject.SetActive(true);
+            _medalContainerImage.sprite = _goldMedalSprite;
         }
         if (_playerScore >= 40)
         {
-            _playerMedals.GetChild(2).gameObject.SetActive(false);
-            _playerMedals.GetChild(3).gameObject.SetActive(true);
+            _medalContainerImage.sprite = _platinumMedalSprite;
         }
     }
 
