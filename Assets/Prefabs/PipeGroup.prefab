@@ -535,3 +535,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pipeGroupSpeed: 0.5
+  _pipeDestroyTime: 10

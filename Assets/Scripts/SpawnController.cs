@@ -25,7 +25,6 @@ public class SpawnController : MonoBehaviour
     public void DisableSpawn()
     {
         CancelInvoke();
-
     }
 
     private void SpawnPipeGroup()
@@ -33,8 +32,15 @@ public class SpawnController : MonoBehaviour
         Instantiate(_pipeGroup, new Vector3 (_pipeGroupXPosition, _pipeGroupYPosition, 0), Quaternion.identity);
     }
 
-    public void DestroyPipeGroup()
+    public void DestroyRemainingPipes()
     {
-        
+        PipeGroupController[] pipeGroupCollection = FindObjectsOfType<PipeGroupController>();
+        Debug.Log($"{pipeGroupCollection.Length}");
+        foreach(var pipe in pipeGroupCollection)
+        {
+            Destroy(pipe.gameObject);
+        } 
+
+        Debug.Log($"Cleaned Remaining Pipes");
     }
 }

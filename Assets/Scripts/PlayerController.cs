@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
             if (IsSessionStarted != true)
             {
                 _spawnController.EnableSpawn();
-                Debug.Log($"Spawner Started");
             }
             _rigidbody.AddForce(new Vector2(0,_jumpForce), ForceMode2D.Impulse);
             EnableGravity();
@@ -41,13 +40,11 @@ public class PlayerController : MonoBehaviour
     public void EnableGravity()
     {
         _rigidbody.gravityScale = 1;
-        Debug.Log($"Gravity Enabled");
     }
 
     public void DisableGravity()
     {
         _rigidbody.gravityScale = 0;
-        Debug.Log($"Gravity Disabled");
     }
     
 }

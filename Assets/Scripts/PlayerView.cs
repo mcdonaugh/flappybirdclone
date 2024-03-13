@@ -13,14 +13,12 @@ public class PlayerView : MonoBehaviour
         {
             _gameStateController.OpenEndGameView();
             _playerController.IsSessionStarted = false;
-            Debug.Log($"Collided with: {collider.transform.name}");
             gameObject.SetActive(false);
         } 
 
         if (collider.transform.tag == "Score")
         {
             _gameStateController._playerScore += 1;
-            Debug.Log($"Player Score: {_gameStateController._playerScore}");
         }
 
     }

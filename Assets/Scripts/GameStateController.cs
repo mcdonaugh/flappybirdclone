@@ -25,6 +25,7 @@ public class GameStateController : MonoBehaviour
     private void Awake()
     {
         _playerScore = 0;
+        _playerController.gameObject.SetActive(false);
         _startGameView.gameObject.SetActive(true);
         _gameView.gameObject.SetActive(false);
         _endGameView.gameObject.SetActive(false);
@@ -39,6 +40,7 @@ public class GameStateController : MonoBehaviour
 
     public void OpenGameView()
     {
+        _playerController.gameObject.SetActive(true);
         _startGameView.gameObject.SetActive(false);
         _gameView.gameObject.SetActive(true);
         _endGameView.gameObject.SetActive(false);
@@ -71,10 +73,12 @@ public class GameStateController : MonoBehaviour
 
     public void OpenEndGameView()
     {
+        _playerController.gameObject.SetActive(false);
         _startGameView.gameObject.SetActive(false);
         _gameView.gameObject.SetActive(false);
         _endGameView.gameObject.SetActive(true);
         _pauseGameView.gameObject.SetActive(false);
+        _spawnController.DestroyRemainingPipes();
         _spawnController.DisableSpawn();
         _playerController.RestartPosition();
         _playerController.DisableGravity();
