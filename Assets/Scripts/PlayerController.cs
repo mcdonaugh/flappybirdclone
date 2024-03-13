@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpawnController _spawnController;
     [SerializeField] private float _jumpForce = 1.5f;
     public bool IsSessionStarted = false;
-    private Rigidbody2D _rigidbody;
+    public Rigidbody2D _rigidbody;
 
     private void Awake()
     {

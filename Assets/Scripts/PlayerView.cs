@@ -5,7 +5,13 @@ public class PlayerView : MonoBehaviour
 {
     [SerializeField] private GameStateController _gameStateController;
     [SerializeField] private PlayerController _playerController;
+    private int _rotationSpeed;
     
+    private void FixedUpdate()
+    {
+        transform.rotation = Quaternion.Euler(0,0,_playerController._rigidbody.velocity.y* _rotationSpeed);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
