@@ -11,31 +11,16 @@ public class GameStateController : MonoBehaviour
     [SerializeField] private Transform _pauseGameView;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private SpawnController _spawnController;
-    [SerializeField] private TMP_Text _playerScoreText;
-    [SerializeField] private TMP_Text _playerEndText;
-    [SerializeField] private TMP_Text _playerBestText;
-    [SerializeField] private Image _medalContainerImage;
-    [SerializeField] private Sprite _bronzeMedalSprite;
-    [SerializeField] private Sprite _silverMedalSprite;
-    [SerializeField] private Sprite _goldMedalSprite;
-    [SerializeField] private Sprite _platinumMedalSprite;
+    [SerializeField] private MedalView _medalView;
     
-    public int _playerScore;
-
     private void Awake()
     {
-        _playerScore = 0;
         _playerController.gameObject.SetActive(false);
         _startGameView.gameObject.SetActive(true);
         _gameView.gameObject.SetActive(false);
         _endGameView.gameObject.SetActive(false);
         _playerView.gameObject.SetActive(false);
         _pauseGameView.gameObject.SetActive(false);
-    }
-
-     private void Update()
-    {
-        SetScore(_playerScore);
     }
 
     public void OpenGameView()
@@ -48,13 +33,6 @@ public class GameStateController : MonoBehaviour
         _pauseGameView.gameObject.SetActive(false);
         _playerController.RestartPosition();
         _playerController.DisableGravity();
-    }
-
-    public void SetScore(int score)
-    {
-        _playerScoreText.text = $"{score}";
-        _playerEndText.text = $"{score}";
-        _playerBestText.text = $"{score}";
     }
 
     public void PauseGame()
@@ -82,8 +60,7 @@ public class GameStateController : MonoBehaviour
         _spawnController.DisableSpawn();
         _playerController.RestartPosition();
         _playerController.DisableGravity();
-        AssignMedal();
-        
+        _medalView.AssignMedal();
     }
 
     public void RestartGame()
@@ -95,29 +72,6 @@ public class GameStateController : MonoBehaviour
         _pauseGameView.gameObject.SetActive(false);
         _playerView.gameObject.SetActive(false);
         _playerController.RestartPosition();
-        _medalContainerImage.gameObject.SetActive(false);
-        SetScore(0);
+        _medalView.RestartMedalDefault();
     }
-
-    private void AssignMedal()
-    {
-        if (_playerScore >= 10)
-        {
-            _medalContainerImage.gameObject.SetActive(true);
-            _medalContainerImage.sprite = _bronzeMedalSprite;
-        }
-        if (_playerScore >= 20)
-        {
-            _medalContainerImage.sprite = _silverMedalSprite;
-        }
-        if (_playerScore >= 30)
-        {
-            _medalContainerImage.sprite = _goldMedalSprite;
-        }
-        if (_playerScore >= 40)
-        {
-            _medalContainerImage.sprite = _platinumMedalSprite;
-        }
-    }
-
 }

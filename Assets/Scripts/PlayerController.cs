@@ -1,13 +1,14 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public event Action OnJumpedAction;
     [SerializeField] private GameObject _playerView;
     [SerializeField] private SpawnController _spawnController;
-    [SerializeField] private SoundFXManager _soundFXManager;
     [SerializeField] private float _jumpForce = 1.5f;
     public bool IsSessionStarted = false;
-    public Rigidbody2D _rigidbody;
+    private Rigidbody2D _rigidbody;
 
     private void Awake()
     {
@@ -27,10 +28,11 @@ public class PlayerController : MonoBehaviour
             {
                 _spawnController.EnableSpawn();
             }
-            _soundFXManager._audioSource.PlayOneShot(_soundFXManager._flapWings, .1f);
             _rigidbody.velocity = Vector2.up * _jumpForce;
             EnableGravity();
             IsSessionStarted = true;
+
+            OnJumpedAction?.Invoke();
         }
     }
 

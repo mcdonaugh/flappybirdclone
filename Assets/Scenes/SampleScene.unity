@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 26606055}
   - component: {fileID: 26606054}
   m_Layer: 5
-  m_Name: EndScore
+  m_Name: EndScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -784,10 +784,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerView: {fileID: 2024048878}
   _spawnController: {fileID: 274977364}
-  _soundFXManager: {fileID: 1086889408}
-  _jumpForce: 3
+  _jumpForce: 4
   IsSessionStarted: 0
-  _rigidbody: {fileID: 0}
 --- !u!4 &464922489
 Transform:
   m_ObjectHideFlags: 0
@@ -1048,12 +1046,7 @@ MonoBehaviour:
   _playerScoreText: {fileID: 746503188}
   _playerEndText: {fileID: 26606054}
   _playerBestText: {fileID: 1775931447}
-  _medalContainerImage: {fileID: 871978050}
-  _bronzeMedalSprite: {fileID: 21300000, guid: 7270f37e226fb4493ae47c27032b7cb0, type: 3}
-  _silverMedalSprite: {fileID: 21300000, guid: a90bb7780623e4177b60e3a2f91023d8, type: 3}
-  _goldMedalSprite: {fileID: 21300000, guid: ff882d81f8396418cb0cb2a743a699cc, type: 3}
-  _platinumMedalSprite: {fileID: 21300000, guid: 7a920c521cd3d4af296182ab1d01db80, type: 3}
-  _playerScore: 0
+  _medalView: {fileID: 871978052}
 --- !u!4 &608105606
 Transform:
   m_ObjectHideFlags: 0
@@ -1082,7 +1075,7 @@ GameObject:
   - component: {fileID: 632412673}
   - component: {fileID: 632412672}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1201,6 +1194,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632412670}
   m_CullTransparentMesh: 1
+--- !u!1 &678441867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 678441869}
+  - component: {fileID: 678441868}
+  m_Layer: 0
+  m_Name: GameView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &678441868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678441867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea14ac0f08e64d8983ef7140f290a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerScoreText: {fileID: 746503188}
+  _playerView: {fileID: 2024048882}
+--- !u!4 &678441869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678441867}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 585, y: 684, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,7 +1346,7 @@ GameObject:
   - component: {fileID: 746503189}
   - component: {fileID: 746503188}
   m_Layer: 5
-  m_Name: PlayerScore
+  m_Name: PlayerScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1440,8 +1479,9 @@ GameObject:
   - component: {fileID: 871978049}
   - component: {fileID: 871978051}
   - component: {fileID: 871978050}
+  - component: {fileID: 871978052}
   m_Layer: 5
-  m_Name: Medal
+  m_Name: MedalView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1504,6 +1544,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871978048}
   m_CullTransparentMesh: 1
+--- !u!114 &871978052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871978048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3cfe069eaf88404d84c49e1cc73921a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameView: {fileID: 0}
+  _medalContainerImage: {fileID: 871978050}
+  _bronzeMedalSprite: {fileID: 21300000, guid: 7270f37e226fb4493ae47c27032b7cb0, type: 3}
+  _silverMedalSprite: {fileID: 21300000, guid: a90bb7780623e4177b60e3a2f91023d8, type: 3}
+  _goldMedalSprite: {fileID: 21300000, guid: ff882d81f8396418cb0cb2a743a699cc, type: 3}
+  _platinumMedalSprite: {fileID: 21300000, guid: 7a920c521cd3d4af296182ab1d01db80, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,7 +1573,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1597,18 +1654,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &963194229
+--- !u!1 &1086889407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086889409}
+  - component: {fileID: 1086889408}
+  - component: {fileID: 1086889410}
+  m_Layer: 0
+  m_Name: SoundFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1086889408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086889407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f0bb0fe887c4117af92b66b9120cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _getHit: {fileID: 8300000, guid: baf88dfa6599c4938a7951946ea521ea, type: 3}
+  _getPoints: {fileID: 8300000, guid: ac7e1ba0a92824931b5e4a425f003cfd, type: 3}
+  _flapWings: {fileID: 8300000, guid: 179c6506899c04735a05155ffe527c94, type: 3}
+  _playerController: {fileID: 464922488}
+--- !u!4 &1086889409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086889407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1086889410
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
+  m_GameObject: {fileID: 1086889407}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1693,54 +1799,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1086889407
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1086889409}
-  - component: {fileID: 1086889408}
-  m_Layer: 0
-  m_Name: SoundFXManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1086889408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086889407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f0bb0fe887c4117af92b66b9120cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _getHit: {fileID: 8300000, guid: baf88dfa6599c4938a7951946ea521ea, type: 3}
-  _getPoints: {fileID: 8300000, guid: ac7e1ba0a92824931b5e4a425f003cfd, type: 3}
-  _flapWings: {fileID: 8300000, guid: 179c6506899c04735a05155ffe527c94, type: 3}
-  _audioSource: {fileID: 963194229}
---- !u!4 &1086889409
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086889407}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1181740756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,7 +2152,7 @@ GameObject:
   - component: {fileID: 1775931448}
   - component: {fileID: 1775931447}
   m_Layer: 5
-  m_Name: BestScore
+  m_Name: BestScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2647,7 +2705,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameStateController: {fileID: 608105605}
   _playerController: {fileID: 464922488}
-  _soundFXManager: {fileID: 1086889408}
 --- !u!58 &2024048883
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2677,7 +2734,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2948,3 +3005,4 @@ SceneRoots:
   - {fileID: 119286329}
   - {fileID: 274977365}
   - {fileID: 1086889409}
+  - {fileID: 678441869}
