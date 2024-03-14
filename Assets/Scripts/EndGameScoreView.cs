@@ -7,13 +7,16 @@ public class EndGameScoreView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _endScoreTextUI;
     [SerializeField] private TMP_Text _bestScoreTextUI;
+    [SerializeField] private ScoreController _scoreController;
 
-    private PlayerView _playerView;
+    private void Update()
+    {
+        UpdateEndScoreUI(_scoreController.PlayerScore);
+    }
 
-
-
-
-
-
-
+    private void UpdateEndScoreUI(int score)
+    {
+        _endScoreTextUI.text = $"{score}";
+    }
+    
 }

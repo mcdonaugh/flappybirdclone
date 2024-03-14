@@ -5,18 +5,11 @@ using TMPro;
 public class GameView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _playerScoreText;
-    [SerializeField] private PlayerView _playerView;
-    
-    public int PlayerScore{get; private set;}
-    
-    private void OnEnable()
-    {
-        _playerView.OnScoreTriggerTouchedAction += OnScoreTriggerTouchedActionHandler;
-    }
+    [SerializeField] private ScoreController _scoreController;
 
-    private void OnDisable()
+    private void Update()
     {
-        _playerView.OnScoreTriggerTouchedAction -= OnScoreTriggerTouchedActionHandler;
+        UpdateScoreUI(_scoreController.PlayerScore);
     }
 
     private void UpdateScoreUI(int score)
@@ -24,11 +17,7 @@ public class GameView : MonoBehaviour
         _playerScoreText.text = $"{score}";
     }
 
-    private void OnScoreTriggerTouchedActionHandler()
-    {
-        PlayerScore += 1;
-        UpdateScoreUI(PlayerScore);
-    }
+
     
 
 

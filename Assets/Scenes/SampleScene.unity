@@ -1043,9 +1043,6 @@ MonoBehaviour:
   _pauseGameView: {fileID: 259092394}
   _playerController: {fileID: 464922488}
   _spawnController: {fileID: 274977364}
-  _playerScoreText: {fileID: 746503188}
-  _playerEndText: {fileID: 26606054}
-  _playerBestText: {fileID: 1775931447}
   _medalView: {fileID: 871978052}
 --- !u!4 &608105606
 Transform:
@@ -1224,7 +1221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerScoreText: {fileID: 746503188}
-  _playerView: {fileID: 2024048882}
+  _scoreController: {fileID: 1200967336}
 --- !u!4 &678441869
 Transform:
   m_ObjectHideFlags: 0
@@ -1556,7 +1553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cfe069eaf88404d84c49e1cc73921a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameView: {fileID: 0}
+  _scoreController: {fileID: 1200967336}
   _medalContainerImage: {fileID: 871978050}
   _bronzeMedalSprite: {fileID: 21300000, guid: 7270f37e226fb4493ae47c27032b7cb0, type: 3}
   _silverMedalSprite: {fileID: 21300000, guid: a90bb7780623e4177b60e3a2f91023d8, type: 3}
@@ -1904,6 +1901,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1200967335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1200967337}
+  - component: {fileID: 1200967336}
+  m_Layer: 0
+  m_Name: ScoreController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1200967336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200967335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34283650895d546d9b9fd1cf1857ddba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerView: {fileID: 2024048882}
+--- !u!4 &1200967337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200967335}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 585, y: 684, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1522543375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1830571436}
+  - component: {fileID: 1830571437}
   m_Layer: 5
   m_Name: EndGameView
   m_TagString: Untagged
@@ -2444,6 +2487,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1830571437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830571435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094ade5d9d19f40719a86a3ac1c69487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _endScoreTextUI: {fileID: 26606054}
+  _bestScoreTextUI: {fileID: 1775931447}
+  _scoreController: {fileID: 1200967336}
 --- !u!1 &1972939640
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,3 +3064,4 @@ SceneRoots:
   - {fileID: 274977365}
   - {fileID: 1086889409}
   - {fileID: 678441869}
+  - {fileID: 1200967337}
